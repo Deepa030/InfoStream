@@ -38,15 +38,16 @@ const News = (props)=>{
         // eslint-disable-next-line
     }, [])
 
-
-    const fetchMoreData = async () => {   
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
-        setPage(page+1) 
-        let data = await fetch(url);
-        let parsedData = await data.json()
-        setArticles(articles.concat(parsedData.articles))
-        setTotalResults(parsedData.totalResults)
-      };
+    
+        const fetchMoreData = async () => {   
+            const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
+            setPage(page+1) 
+            let data = await fetch(url);
+            let parsedData = await data.json()
+            setArticles(articles.concat(parsedData.articles))
+            setTotalResults(parsedData.totalResults)
+          };
+   
  
         return (
             <>
